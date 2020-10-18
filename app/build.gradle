@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.raj.learn"
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.security:security-crypto:1.0.0-alpha02'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //dagger 2
+    def dagger_version = '2.29.1'
+    implementation "com.google.dagger:dagger:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    //glide
+    def glide_version = '4.11.0'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+    //view model
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+//    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    // if using Java8, use the following instead of lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    // ReactiveStreams support for LiveData
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
+    // Test helpers for LiveData
+//    testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
+
+    //rxjava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.15'
+
+    //rxbinding for view binding
+    implementation 'com.jakewharton.rxbinding3:rxbinding:3.1.0'
+
+    //retrofit
+    def retrofit_version = '2.9.0';
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+
+    //logging api
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'com.google.android.material:material:1.2.1'
+
+    //java.lang.ClassNotFoundException: Didn't find class "org.conscrypt.ConscryptHostnameVerifier"
+    implementation 'org.conscrypt:conscrypt-android:2.5.1'
+
+    //room database
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    //RxJava support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+    // Test helpers
+//    testImplementation "androidx.room:room-testing:$room_version"
+
+    //paging library
+    def paging_version = "2.1.2"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    // RxJava support
+    implementation "androidx.paging:paging-rxjava2:$paging_version"
+    //dependencies for testing
+//    testImplementation "androidx.paging:paging-common:$paging_version"
+}

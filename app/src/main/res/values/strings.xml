@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Learn Comm</string>
+    <string name="welcome">Welcome</string>
+    <string name="to">to</string>
+    <string name="preference_file_key">learnData</string>
+    <string name="loginSuccessMessage">Welcome back!</string>
+    <string name="emptyEmailId">Value for Email Id is empty or null.</string>
+    <string name="emptyPassword">Value for password is empty or null.</string>
+    <string name="loginError">Something went wrong. Please try again.</string>
+    <string name="invalidEmailId">Please enter a valid Email Id.</string>
+</resources>
